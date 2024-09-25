@@ -1,29 +1,4 @@
 # InvestX
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InvestX - Your Ultimate Stock Market Platform</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
-        h1, h2 {
-            color: #2c3e50;
-        }
-        p {
-            color: #34495e;
-        }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-    </style>
-</head>
 <body>
     <h1>Welcome to InvestX</h1>
     <p>The ultimate platform designed to elevate your stock market journey. Whether you're a complete beginner or have some trading experience, InvestX equips you with everything you need to learn, practice, and make informed investment decisions—all without the clutter of unreliable tips or shortcuts.</p>
