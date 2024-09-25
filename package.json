@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "concurrently \"nodemon ./bin/www\" \"python ChatBot/app.py\""
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -23,5 +23,8 @@
     "passport-google-oauth20": "^2.0.0",
     "realtime-newsapi": "^1.1.2",
     "sentiment": "^5.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
   }
 }

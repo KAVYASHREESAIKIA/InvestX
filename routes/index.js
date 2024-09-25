@@ -24,7 +24,7 @@ router.get('/terminal', async (req, res) => {
     res.redirect('/auth/google');
   }
   else {
-    const stocks = await Stock.find({ Symbol: "RELIANCE", Date: { $gte: '2019-01-01', $lte: '2020-02-01' } });
+    const stocks = await Stock.find({ Symbol: "RELIANCE", Date: { $gte: '2023-01-01', $lte: '2024-01-01' } });
     res.render('simulator', { title: 'InvestX', data: stocks });
   }
 });
@@ -75,7 +75,7 @@ router.get('/getnews', async (req, res) => {
 });
 
 router.get('/getdata/:num', async (req, res) => {
-  const stocks = await Stock.find({ Symbol: "RELIANCE", Date: { $gte: '2019-01-01', $lte: '2020-02-01' } }).limit(Number(req.params.num));
+  const stocks = await Stock.find({ Symbol: "RELIANCE", Date: { $gte: '2023-01-01', $lte: '2024-01-01' } }).limit(Number(req.params.num));
   res.status(200).json(stocks);
 });
 
