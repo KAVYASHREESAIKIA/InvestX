@@ -1,4 +1,5 @@
 # InvestX
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,3 +49,7 @@
     <p>InvestX is your all-in-one platform to master the stock market. From learning the basics to practicing with virtual trades and analyzing real-time data, InvestX makes investing simpler, clearer, and more strategic. Start your financial journey with confidence, and let InvestX be your guide to smarter investing!</p>
 </body>
 </html>
+=======
+hello guys<br/>
+Hiii
+>>>>>>> 45d57e5834673ebfb7538607c8d11a506a921a19
