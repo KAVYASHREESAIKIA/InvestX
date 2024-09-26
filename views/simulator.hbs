@@ -1,4 +1,5 @@
-<div class="page-wrapper chiller-theme toggled" id="simulator"></div>
+<!-- partial:index.partial.html -->
+<div class="page-wrapper chiller-theme toggled" id="simulator">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
     <i class="fas fa-bars" onclick="resetWindowSize()"></i>
   </a>
@@ -25,6 +26,7 @@
           </span>
         </div>
       </div>
+      <!-- sidebar-header  -->
       <div class="sidebar-search">
         <div>
           <div class="input-group">
@@ -37,6 +39,7 @@
           </div>
         </div>
       </div>
+      <!-- sidebar-search  -->
       <div class="sidebar-menu" style="color: white;">
         <ul>
           <li class="header-menu">
@@ -51,7 +54,7 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="#" id="cbp">{}</a>
+                  <a href="#" id="cbp"></a>
                 </li>
               </ul>
             </div>
@@ -99,9 +102,9 @@
           </li>
         </ul>
       </div>
-  
+      <!-- sidebar-menu  -->
     </div>
-    
+    <!-- sidebar-content  -->
     <div class="sidebar-footer">
       <a href="#">
         <span>Back to Home Page</span>
@@ -245,6 +248,7 @@
             .then(res => res.json())
             .then(data => {
               cdata = data.map(d => {
+                document.getElementById('cbp').innerHTML = "₹ " + d.Last_Price;
                 return { time: d.Date, open: parseFloat(d.Open_Price), high: parseFloat(d.High_Price), low: parseFloat(d.Low_Price), close: parseFloat(d.Close_Price) }
               });
               candleSeries.setData(cdata);
@@ -256,6 +260,7 @@
             .then(res => res.json())
             .then(data => {
               cdata = data.map(d => {
+                document.getElementById('cbp').innerHTML = "₹ " + d.Last_Price;
                 return { time: d.Date, open: parseFloat(d.Open_Price), high: parseFloat(d.High_Price), low: parseFloat(d.Low_Price), close: parseFloat(d.Close_Price) }
               });
               candleSeries.setData(cdata);
@@ -318,62 +323,35 @@
     }
 
     async function changeChart() {
-      flag = false;
-      var sd = document.getElementById('startdate').value;
-      var ed = document.getElementById('enddate').value;
-      var stock = document.getElementById('companies').value;
-
-      var d = new Date(sd);
-      var syear = d.getFullYear();
-      var smonth = (d.getMonth() + 1) + "";
-      smonth = smonth.length < 2 ? "0" + smonth : smonth;
-      var sday = d.getDate() + "";
-      sday = sday.length < 2 ? "0" + sday : sday;
-
-      var startdate = syear + "-" + smonth + "-" + sday;
-
-      for (d = new Date(sd); d <= new Date(ed); d.setDate(d.getDate() + 1)) {
-        var year = d.getFullYear();
-        var month = (d.getMonth() + 1) + "";
-        month = month.length < 2 ? "0" + month : month;
-        var day = d.getDate() + "";
-        day = day.length < 2 ? "0" + day : day;
-
-        var str = year + "-" + month + "-" + day;
-        curr_date = str;
-        fetch(http://localhost:9000/getdata/ + startdate + '/' + str + '/' + stock)
-          .then(res => res.json())
-          .then(data => {
-            cdata = data.map(d => {
-              document.getElementById('cbp').innerHTML = "₹ " + d.Last_Price;
-              // cbp*num + avail
-              var n = d.Last_Price*ns + avail;
-              n = n.toFixed(2);
-
-              document.getElementById('portfolio').innerHTML = "₹ " + n; //+ port;
-              return { time: d.Date, open: parseFloat(d.Open_Price), high: parseFloat(d.High_Price), low: parseFloat(d.Low_Price), close: parseFloat(d.Close_Price) }
-            });
-            candleSeries.setData(cdata);
-          })
-          .catch(err => log(err))
-
-          fetch(http://localhost:9000/getnews/)
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
+      for (i = 1; i < 365; i++) {
+        if (i == 1) {
+          fetch(http://localhost:9000/getdata/ + i)
+            .then(res => res.json())
+            .then(data => {
+              cdata = data.map(d => {
+                document.getElementById('cbp').innerHTML = "₹ " + d.Last_Price;
+                return { time: d.Date, open: parseFloat(d.Open_Price), high: parseFloat(d.High_Price), low: parseFloat(d.Low_Price), close: parseFloat(d.Close_Price) }
+              });
+              candleSeries.setData(cdata);
+            })
+            .catch(err => log(err))
+        }
+        else {
+          fetch(http://localhost:9000/getdata/ + i)
+            .then(res => res.json())
+            .then(data => {
+              cdata = data.map(d => {
+                document.getElementById('cbp').innerHTML = "₹ " + d.Last_Price;
+                return { time: d.Date, open: parseFloat(d.Open_Price), high: parseFloat(d.High_Price), low: parseFloat(d.Low_Price), close: parseFloat(d.Close_Price) }
+              });
+              candleSeries.setData(cdata);
+            })
+            .catch(err => log(err))
             
-            document.getElementById("newsa").innerHTML=data.newsa.Title;
-            document.getElementById("linka").href=data.newsa.Links;
-            document.getElementById("newsb").innerHTML=data.newsb.Title;
-            document.getElementById("linkb").href=data.newsb.Links;
-            document.getElementById("newsc").innerHTML=data.newsc.Title;
-            document.getElementById("linkc").href=data.newsc.Links;
-            document.getElementById("sa").innerHTML=data.nra;
-            document.getElementById("sb").innerHTML=data.nrb;
-            document.getElementById("sc").innerHTML=data.nrc;
-          })
-          .catch(err => log(err))
-        await sleep(2000);
+      }
+        }
+
+          
       }
     }
 
