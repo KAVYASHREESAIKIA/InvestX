@@ -48,71 +48,145 @@
         <h3>AI-Powered Stock Analysis Assistant</h3>
         <p>Get instant, detailed stock reports and insights using our AI-powered assistant.</p>
       </div>
-      <div class="service-card">
-        <i class="fas fa-wallet"></i>
-        <h3>Real-Time Wallet and Portfolio Management</h3>
-        <p>Track your stock holdings and portfolio performance with real-time updates.</p>
-      </div>
     </div>
   </section>
 
   
-  <div class="container marketing">
-    <div class="row">
-      <div class="col-lg-4">
-        <h2>SENSEX</h2>
-        <p><a class="btn btn-secondary"  onclick="viewChart('sensex')">View Charts</a></p>
-      </div>
-      <div class="col-lg-4">
-        <h2>FOREX</h2>
-        <p><a class="btn btn-secondary"  onclick="viewChart('forex')">View Charts</a></p>
-      </div>
-      <div class="col-lg-4">
-        <h2>Top Stocks</h2>
-        <p><a class="btn btn-secondary"  onclick="viewChart('top')">View Charts</a></p>
+<div class="container marketing">
+  <div class="row">
+
+    <!-- SENSEX Card -->
+    <div class="col-lg-4">
+      <div class="card" style="width: 18rem;">
+        <img src="/sensex.png" class="card-img-top" alt="SENSEX Image" style="height: 150px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">SENSEX</h5>
+          <p class="card-text">Track the performance of India's stock market index.</p>
+          <a class="btn btn-secondary" onclick="viewChart('sensex')">View Charts</a>
+        </div>
       </div>
     </div>
 
-    <div class="tradingview-widget-container" id="top" style="display: none;">
-      <div id="tradingview_a3978"></div>
-     
-      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-      <script type="text/javascript">
-        new TradingView.MediumWidget({
-          "symbols": [["BSE:ITC|ALL"], ["BSE:TCS|ALL"], ["BSE:RELIANCE|ALL"]],
-          "width": 1300, "height": 400, "locale": "en",
-          "colorTheme": "dark", "chartType": "area",
-          "container_id": "tradingview_a3978"
-        });
-      </script>
+    <!-- FOREX Card -->
+    <div class="col-lg-4">
+      <div class="card" style="width: 18rem;">
+        <img src="/forex.png" class="card-img-top" alt="FOREX Image" style="height: 150px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">FOREX</h5>
+          <p class="card-text">View foreign exchange rates and trends.</p>
+          <a class="btn btn-secondary" onclick="viewChart('forex')">View Charts</a>
+        </div>
+      </div>
     </div>
 
-    <div class="tradingview-widget-container" id="forex" style="display: none;">
-      <div id="tradingview_95244"></div>
-      
-      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-      <script type="text/javascript">
-        new TradingView.MediumWidget({
-          "symbols": [["FX_IDC:USDINR|ALL"]],
-          "width": 1300, "height": 400, "locale": "en",
-          "colorTheme": "dark", "chartType": "area",
-          "container_id": "tradingview_95244"
-        });
-      </script>
+    <!-- Top Stocks Card -->
+    <div class="col-lg-4">
+      <div class="card" style="width: 18rem;">
+        <img src="/top.png" class="card-img-top" alt="Top Stocks Image" style="height: 150px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Top Stocks</h5>
+          <p class="card-text">Analyze the top-performing stocks in the market.</p>
+          <a class="btn btn-secondary" onclick="viewChart('top')">View Charts</a>
+        </div>
+      </div>
     </div>
 
-    <div class="tradingview-widget-container" id="sensex" style="display: none;">
-      <div id="tradingview_c0d92"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-      <script type="text/javascript">
-        new TradingView.MediumWidget({
-          "symbols": [["BSE:SENSEX|ALL"]],
-          "width": 1300, "height": 400, "locale": "en",
-          "colorTheme": "dark", "chartType": "area",
-          "container_id": "tradingview_c0d92"
-        });
-      </script>
-    </div>
+  </div>
+
+  <!-- SENSEX TradingView Widget -->
+  <div class="tradingview-widget-container" id="sensex" style="display: none;">
+    <div id="tradingview_c0d92"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+      new TradingView.MediumWidget({
+        "symbols": [["BSE:SENSEX|ALL"]],
+        "width": 1300, "height": 400, "locale": "en",
+        "colorTheme": "dark", "chartType": "area",
+        "container_id": "tradingview_c0d92"
+      });
+    </script>
+  </div>
+
+  <!-- FOREX TradingView Widget -->
+  <div class="tradingview-widget-container" id="forex" style="display: none;">
+    <div id="tradingview_95244"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+      new TradingView.MediumWidget({
+        "symbols": [["FX_IDC:USDINR|ALL"]],
+        "width": 1300, "height": 400, "locale": "en",
+        "colorTheme": "dark", "chartType": "area",
+        "container_id": "tradingview_95244"
+      });
+    </script>
+  </div>
+
+  <!-- Top Stocks TradingView Widget -->
+  <div class="tradingview-widget-container" id="top" style="display: none;">
+    <div id="tradingview_a3978"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+      new TradingView.MediumWidget({
+        "symbols": [["BSE:ITC|ALL"], ["BSE:TCS|ALL"], ["BSE:RELIANCE|ALL"]],
+        "width": 1300, "height": 400, "locale": "en",
+        "colorTheme": "dark", "chartType": "area",
+        "container_id": "tradingview_a3978"
+      });
+    </script>
+  </div>
+
+</div>
+
+<!-- Custom CSS -->
+<style>
+  .card-body h5 {
+    font-size: 1.25rem; /* Ensure title is visible and readable */
+    font-weight: bold;
+    color:white;
+  }
+
+  .card-body p {
+    font-size: 0.9rem;
+    color: white; /* Slightly smaller text for descriptions */
+  }
+
+  .card {
+    margin-bottom: 1.5rem;
+
+    background-color: #1d1c1c;
+    border-radius:20px; /* Adds spacing between the cards */
+  }
+
+  .card-img-top{
+    border-radius:20px;
+  }
+</style>
+
+<script>
+  function viewChart(chartId) {
+    // Hide all charts
+    document.getElementById('sensex').style.display = 'none';
+    document.getElementById('forex').style.display = 'none';
+    document.getElementById('top').style.display = 'none';
+    
+    // Show the selected chart
+    document.getElementById(chartId).style.display = 'block';
+  }
+</script>
+
+
+<script>
+  function viewChart(chartId) {
+    // Hide all charts
+    document.getElementById('sensex').style.display = 'none';
+    document.getElementById('forex').style.display = 'none';
+    document.getElementById('top').style.display = 'none';
+    
+    // Show the selected chart
+    document.getElementById(chartId).style.display = 'block';
+  }
+</script>
+
 
     <script>
       function viewChart(chartType) {
