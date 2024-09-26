@@ -1,4 +1,134 @@
 <!-- partial:index.partial.html -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+ <!-- Updated Styles for Modern and Intuitive UI -->
+<style>
+  body {
+    background-color: #1e1e1e; /* Dark gray background */
+    color: #f5f5f5; /* Lighter text */
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .sidebar-wrapper {
+    background-color: #2c2c2c; /* Dark background for sidebar */
+    color: #f5f5f5;
+    padding: 20px;
+  }
+
+  .sidebar-wrapper a {
+    color: #a5a5a5;
+    transition: color 0.3s ease;
+  }
+
+  .sidebar-wrapper a:hover {
+    color: #ffffff; /* Highlighted on hover */
+  }
+
+  .sidebar-wrapper .sidebar-menu .header-menu span {
+    font-size: 1.2em;
+    color: #ffffff;
+    padding: 10px;
+  }
+
+  .sidebar-wrapper .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    padding: 10px;
+    font-size: 1em;
+  }
+
+  .sidebar-wrapper .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    padding: 10px;
+    font-size: 1em;
+  }
+
+  .container input, .form-select {
+    border-radius: 5px;
+    border: 1px solid #444;
+    padding: 10px;
+    background-color: #2c2c2c;
+    color: #fff;
+  }
+
+  /* News Card Style */
+  .card {
+    background-color: #2e2e2e;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: #f5f5f5;
+  }
+
+  .card-title {
+    color: #ffffff;
+  }
+
+  .card-body .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 8px 16px;
+    border-radius: 20px;
+  }
+
+  /* Button Hover Effects */
+  .btn-success:hover {
+    background-color: #218838;
+  }
+
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+
+  .card-body .btn-primary:hover {
+    background-color: #0069d9;
+  }
+
+  /* Sidebar toggle button */
+  #show-sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #2c2c2c;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  /* Chart styling */
+  #chart {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #chart {
+      width: 100%;
+    }
+
+    .sidebar-wrapper {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      transition: left 0.3s ease;
+    }
+
+    .sidebar-wrapper.active {
+      left: 0;
+    }
+  }
+</style>
+
+
+<body>
+  
 <div class="page-wrapper chiller-theme toggled" id="simulator">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
     <i class="fas fa-bars" onclick="resetWindowSize()"></i>
@@ -161,33 +291,40 @@
     <div class="float-child-news" id='news'>
       <div class="card text-center" style="width: 20rem;">
         <div class="card-body">
-          <h5 class="card-title" id="newsa">Sensex crashed over 1,000 points 14 times in 2020</h5>
+          <h5 class="card-title" id="newsa">Trending Topics
+Live now
+auto refresh 
+Stock Market LIVE Updates: Nifty crosses 26,100, Sensex above 85,500; Nifty Bank at fresh high</h5>
           <p class="card-text" id="sa"></p>
-          <a href="#" class="btn btn-primary" id="linka">View More</a>
+          <a href="https://www.moneycontrol.com/news/business/markets/stock-market-live-sensex-nifty-50-share-price-gift-nifty-latest-updates-26-09-2024-liveblog-12829738.html" class="btn btn-primary" id="linka"  target="_blank">View More</a>
         </div>
       </div>
       <br>
 
       <div class="card text-center" style="width: 20rem;">
         <div class="card-body">
-          <h5 class="card-title" id="newsb">The big risk for Indian stock market rally</h5>
+          <h5 class="card-title" id="newsb">EaseMyTrip signs deal to launch hotels segment on PhonePe, shares jump 6%</h5>
           <p class="card-text" id="sb"></p>
-          <a href="#" class="btn btn-primary" id="linkb">View More</a>
+          <a href="https://www.moneycontrol.com/news/business/markets/easemytrip-signs-deal-to-launch-hotels-segment-on-phonepe-shares-jump-6-12829938.html" class="btn btn-primary" id="linkb" target="_blank">View More</a>
         </div>
       </div>
       <br>
 
       <div class="card text-center" style="width: 20rem;">
         <div class="card-body">
-          <h5 class="card-title" id="newsc">Reliance Hit Worst, IT Sectors weakens</h5>
+          <h5 class="card-title" id="newsc">RIEX shares bounce back 4% after two-day fall; Investec initiates 'long fast'</h5>
           <p class="card-text" id="sc"></p>
-          <a href="#" class="btn btn-primary" id="linkc">View More</a>
+          <a href="https://www.moneycontrol.com/news/business/markets/iex-shares-bounce-back-4-after-two-day-fall-investec-initiates-long-fast-12829952.html" class="btn btn-primary" id="linkc"  target="_blank" >View More</a>
         </div>
       </div>
       <br>
       <br>
     </div>
   </div>
+
+  
+    
+  </body>
   <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
   <script>
     function resetWindowSize() {
@@ -361,6 +498,14 @@
 
       }
     }
+    document.getElementById('show-sidebar').addEventListener('click', function () {
+  document.querySelector('.sidebar-wrapper').classList.toggle('active');
+});
+
+document.getElementById('close-sidebar').addEventListener('click', function () {
+  document.querySelector('.sidebar-wrapper').classList.remove('active');
+});
+
 
 
   </script>
