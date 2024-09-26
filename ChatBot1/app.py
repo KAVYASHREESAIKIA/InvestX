@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyBaz0LyNG61swo-9cl-Uf_LJ9r4Y0WFbNU")
+genai.configure(api_key="AIzaSyDRa_CCkj30boeB57DaDH-tdh7yucNvXxQ")
 
 app = Flask(__name__)
 
@@ -14,6 +14,8 @@ def index():
 @app.route("/get", methods=["GET", "POST"])
 def chat():
     user_msg = request.form["msg"]
+    default_msg = "in a brief way about 10 lines (don't bold any words)"
+    user_msg += f" {default_msg}"
     return get_Chat_response(user_msg)
 
 def get_Chat_response(user_input):
