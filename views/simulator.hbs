@@ -1,11 +1,12 @@
-<div class="page-wrapper chiller-theme toggled" id="simulator"></div>
+<!-- partial:index.partial.html -->
+<div class="page-wrapper chiller-theme toggled" id="simulator">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
     <i class="fas fa-bars" onclick="resetWindowSize()"></i>
   </a>
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
       <div class="sidebar-brand">
-        <a href="/">XChange</a>
+        <a href="/">InvestX</a>
         <div id="close-sidebar" onclick="changeWindowSize()">
           <i class="fas fa-times"></i>
         </div>
@@ -25,6 +26,7 @@
           </span>
         </div>
       </div>
+      <!-- sidebar-header  -->
       <div class="sidebar-search">
         <div>
           <div class="input-group">
@@ -37,6 +39,7 @@
           </div>
         </div>
       </div>
+      <!-- sidebar-search  -->
       <div class="sidebar-menu" style="color: white;">
         <ul>
           <li class="header-menu">
@@ -51,7 +54,7 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="#" id="cbp">{}</a>
+                  <a href="#" id="cbp"></a>
                 </li>
               </ul>
             </div>
@@ -99,9 +102,9 @@
           </li>
         </ul>
       </div>
-  
+      <!-- sidebar-menu  -->
     </div>
-    
+    <!-- sidebar-content  -->
     <div class="sidebar-footer">
       <a href="#">
         <span>Back to Home Page</span>
@@ -112,15 +115,11 @@
   <div class="float-container">
     <h1>TRADING TERMINAL</h1>
     <div class="float-child-chart" id='chart' style="width: 60%;">
-      <label for="startdate">Start Date: </label>
-      <input type="date" name="startdate" id="startdate">
       &nbsp;
       &nbsp;
       &nbsp;
       &nbsp;
       &nbsp;
-      <label for="enddate">End Date: </label>
-      <input type="date" name="enddate" id="enddate">
       <br>
       <br>
       <label for="companies">Select Stock : </label>
@@ -149,7 +148,7 @@
         <option value="GAIL">GAIL (India) Ltd.</option>
         <option value="COLPAL">Colgate-Palmolive India Ltd.</option>
       </select>
-      <button style="display:inline-block" type="button" onclick="changeChart()" class="btn btn-success"><b>View
+      <button style="display:inline-block" type="button" onclick="Chart()" class="btn btn-success"><b>View
           Analysis</b></button>
       <br>
       <br>
@@ -241,10 +240,12 @@
     async function Chart() {
       for (i = 1; i < 365; i++) {
         if (i == 1) {
-          fetch(http://localhost:9000/getdata/ + i)
+          fetch(`http://localhost:9000/getdata/` + i)
             .then(res => res.json())
             .then(data => {
               cdata = data.map(d => {
+                 document.getElementById('cbp').innerHTML = "₹ " + d.Last_Price;
+
                 return { time: d.Date, open: parseFloat(d.Open_Price), high: parseFloat(d.High_Price), low: parseFloat(d.Low_Price), close: parseFloat(d.Close_Price) }
               });
               candleSeries.setData(cdata);
@@ -252,10 +253,11 @@
             .catch(err => log(err))
         }
         else {
-          fetch(http://localhost:9000/getdata/ + i)
+          fetch(`http://localhost:9000/getdata/` + i)
             .then(res => res.json())
             .then(data => {
               cdata = data.map(d => {
+                 document.getElementById('cbp').innerHTML = "₹ " + d.Last_Price;
                 return { time: d.Date, open: parseFloat(d.Open_Price), high: parseFloat(d.High_Price), low: parseFloat(d.Low_Price), close: parseFloat(d.Close_Price) }
               });
               candleSeries.setData(cdata);
@@ -341,7 +343,7 @@
 
         var str = year + "-" + month + "-" + day;
         curr_date = str;
-        fetch(http://localhost:9000/getdata/ + startdate + '/' + str + '/' + stock)
+        fetch(`http://localhost:9000/getdata/` + startdate + '/' + str + '/' + stock)
           .then(res => res.json())
           .then(data => {
             cdata = data.map(d => {
@@ -357,23 +359,6 @@
           })
           .catch(err => log(err))
 
-          fetch(http://localhost:9000/getnews/)
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-            
-            document.getElementById("newsa").innerHTML=data.newsa.Title;
-            document.getElementById("linka").href=data.newsa.Links;
-            document.getElementById("newsb").innerHTML=data.newsb.Title;
-            document.getElementById("linkb").href=data.newsb.Links;
-            document.getElementById("newsc").innerHTML=data.newsc.Title;
-            document.getElementById("linkc").href=data.newsc.Links;
-            document.getElementById("sa").innerHTML=data.nra;
-            document.getElementById("sb").innerHTML=data.nrb;
-            document.getElementById("sc").innerHTML=data.nrc;
-          })
-          .catch(err => log(err))
-        await sleep(2000);
       }
     }
 

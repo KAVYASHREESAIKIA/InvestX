@@ -33,6 +33,8 @@ router.get('/getdata/:date1/:date2/:stock', async (req, res) => {
   const stocks = await Stock.find({ Symbol: req.params.stock, Date: { $gte: req.params.date1, $lte: req.params.date2 } });
   res.status(200).json(stocks);
 });
+
+
 router.get('/getdata/:num', async (req, res) => {
   const stocks = await Stock.find({ Symbol: "RELIANCE", Date: { $gte: '2023-01-01', $lte: '2024-01-01' } }).limit(Number(req.params.num));
   res.status(200).json(stocks);
