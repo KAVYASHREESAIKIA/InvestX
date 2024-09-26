@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"nodemon ./bin/www\" \"python ChatBot/app.py\""
+    "start": "concurrently \"nodemon ./bin/www\" \"python ChatBot1/app.py\""
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
