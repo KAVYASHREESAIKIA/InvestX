@@ -33,47 +33,6 @@ router.get('/getdata/:date1/:date2/:stock', async (req, res) => {
   const stocks = await Stock.find({ Symbol: req.params.stock, Date: { $gte: req.params.date1, $lte: req.params.date2 } });
   res.status(200).json(stocks);
 });
-router.get('/getnews', async (req, res) => {
-  const news = await News.find({});
-  var a = Math.floor((Math.random() * 9) + 0);
-  var b = Math.floor((Math.random() * 9) + 9);
-  var c = Math.floor((Math.random() * 9) + 18);
-
-  var resulta = sentiment.analyze(news[a].Title);
-  var resultb = sentiment.analyze(news[b].Title);
-  var resultc = sentiment.analyze(news[c].Title);
-
-  if (resulta.score > 0) {
-    resulta = "Positive";
-  }
-  else {
-    resulta = "Negative";
-  }
-  if (resultb.score > 0) {
-    resultb = "Positive";
-  }
-  else {
-    resultb = "Negative";
-  }
-  if (resultc.score > 0) {
-    resultc = "Positive";
-  }
-  else {
-    resultc = "Negative";
-  }
-
-  var ret = {
-    newsa: news[a],
-    newsb: news[b],
-    newsc: news[c],
-    nra: resulta,
-    nrb: resultb,
-    nrc: resultc
-  }
-
-  res.status(200).json(ret);
-});
-
 router.get('/getdata/:num', async (req, res) => {
   const stocks = await Stock.find({ Symbol: "RELIANCE", Date: { $gte: '2023-01-01', $lte: '2024-01-01' } }).limit(Number(req.params.num));
   res.status(200).json(stocks);
